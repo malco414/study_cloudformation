@@ -67,3 +67,9 @@ Outputs:
     Value: !Ref FirstVPC
     Export: 
       Name: FirstVPCId
+
+  FrontendSubnetId:
+    Description: FrontendSubnetId
+    Value: !Ref FrontendSubnet
+    Export: 
+      Name: FrontendSubnetId

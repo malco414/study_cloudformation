@@ -30,4 +30,4 @@ Outputs:
     Description: FirstSGId
     Value: !Ref FirstSG
     Export: 
-      Name: FirstVPCSG
+      Name: FirstSGId
