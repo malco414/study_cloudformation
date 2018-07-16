@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: My Sample EC2 Template
+
+# -----------------------------------
+Resources:
+# -----------------------------------
+  MyEC2Instance1:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-e99f4896
+      InstanceType: t2.micro
+      SubnetId: !ImportValue FrontendSubnetId
+      SecurityGroupIds:
+        - !ImportValue FirstSGId
+      KeyName: cfn
+      BlockDeviceMappings:
+        - DeviceName: /dev/sdf
+          Ebs: 
+            VolumeSize: 1  
+      InstanceInitiatedShutdownBehavior: stop
+
+  MyEC2Instance1EIP:
+    Type: AWS::EC2::EIP
+    Properties: 
+      InstanceId: !Ref MyEC2Instance1
+      Domain: !ImportValue FirstVPCId
+# -----------------------------------
+#Outputs:
+# -----------------------------------

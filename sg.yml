@@ -22,3 +22,12 @@ Resources:
         - Key: Name
           Value: PublicSubnet
       VpcId: !ImportValue FirstVPCId
+
+# -----------------------------------
+Outputs:
+# -----------------------------------
+  FirstSGId:
+    Description: FirstSGId
+    Value: !Ref FirstSG
+    Export: 
+      Name: FirstSGId
