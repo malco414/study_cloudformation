@@ -15,13 +15,13 @@ Resources:
       KeyName: cfn
       BlockDeviceMappings:
         - DeviceName: /dev/sdf
-          Ebs: 
-            VolumeSize: 1  
+          Ebs:
+            VolumeSize: 1
       InstanceInitiatedShutdownBehavior: stop
 
   MyEC2Instance1EIP:
     Type: AWS::EC2::EIP
-    Properties: 
+    Properties:
       InstanceId: !Ref MyEC2Instance1
       Domain: !ImportValue FirstVPCId
 # -----------------------------------
