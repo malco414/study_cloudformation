@@ -18,6 +18,9 @@ Resources:
           Ebs:
             VolumeSize: 1
       InstanceInitiatedShutdownBehavior: stop
+      tag:
+        - name: ansible-server
+        - role: ansible
 
   MyEC2Instance1EIP:
     Type: AWS::EC2::EIP

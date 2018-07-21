@@ -29,5 +29,5 @@ Outputs:
   FirstSGId:
     Description: FirstSGId
     Value: !Ref FirstSG
-    Export: 
+    Export:
       Name: FirstSGId
