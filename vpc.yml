@@ -4,21 +4,21 @@ Description: My Sample VPC Template
 # -----------------------------------
 Resources:
 # -----------------------------------
-  FirstVPC: 
+  FirstVPC:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.0.0.0/16
-      Tags: 
+      Tags:
       - Key: Name
         Value: firstVPC
 
   FirstInternetGateway:
     Type: AWS::EC2::InternetGateway
-    Properties: 
-      Tags: 
+    Properties:
+      Tags:
       - Key: Name
         Value: firstVPC-IGW
-  
+
   AttachGateway:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
@@ -30,7 +30,7 @@ Resources:
     DependsOn: AttachGateway
     Properties:
       VpcId: !Ref FirstVPC
-      Tags: 
+      Tags:
       - Key: Name
         Value: firstVPC-FrontendRoute
 
@@ -49,7 +49,7 @@ Resources:
       CidrBlock: 10.0.1.0/24
       MapPublicIpOnLaunch: 'true'
       VpcId: !Ref FirstVPC
-      Tags: 
+      Tags:
       - Key: Name
         Value: FirstVPC-FrontendSubnet
 
@@ -65,11 +65,11 @@ Outputs:
   FirstVPCId:
     Description: FirstVPCId
     Value: !Ref FirstVPC
-    Export: 
+    Export:
       Name: FirstVPCId
 
   FrontendSubnetId:
     Description: FrontendSubnetId
     Value: !Ref FrontendSubnet
-    Export: 
+    Export:
       Name: FrontendSubnetId
